@@ -1,0 +1,123 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/yellow</item>
+        <item name="colorPrimaryDark">@color/dark_yellow</item>
+        <item name="colorAccent">@color/yellow</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/transparent</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="AppTheme.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">42dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="AppTheme.Button.Yellow" parent="AppTheme.Button">
+        <item name="android:background">@drawable/shape_yellow_button</item>
+    </style>
+
+    <style name="AppTheme.Button.Blue" parent="AppTheme.Button">
+        <item name="android:background">@drawable/shape_blue_button</item>
+    </style>
+
+    <style name="AppTheme.Button.WhiteStroke" parent="AppTheme.Button">
+        <item name="android:background">@drawable/shape_white_stroke_button</item>
+    </style>
+
+    <style name="AppTheme.Button.YellowStroke" parent="AppTheme.Button">
+        <item name="android:background">@drawable/shape_yellow_stroke_button</item>
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+
+    <style name="AppTheme.Button.BlueStroke" parent="AppTheme.Button">
+        <item name="android:background">@drawable/shape_blue_stroke_button</item>
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="AppTheme.Button.GrayStroke" parent="AppTheme.Button">
+        <item name="android:background">@drawable/shape_dark_gray_stroke</item>
+        <item name="android:textColor">@color/dark_gray_text_darker</item>
+    </style>
+
+    <style name="AppTheme.Fab">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+    <style name="AppTheme.TextDemoSmall">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginLeft">24dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:lineSpacingExtra">3sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_14_plus</item>
+    </style>
+
+    <style name="AppTheme.TextDemoNormalGray">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/dark_gray_text</item>
+        <item name="android:textSize">@dimen/text_16</item>
+    </style>
+
+    <style name="AppTheme.TextDemoLarge">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_20</item>
+    </style>
+
+    <style name="AppTheme.TextDemoLargeScalable" parent="AppTheme.TextDemoLarge">
+        <item name="android:layout_marginLeft">24dp</item>
+        <item name="android:textSize">@dimen/text_20_plus</item>
+    </style>
+
+    <style name="EditTextOnWhiteBackground">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@color/yellow</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_15</item>
+    </style>
+
+    <style name="CheckBoxGray" parent="AppTheme.NoActionBar">
+        <item name="android:textColorSecondary">@color/dark_gray</item>
+    </style>
+
+</resources>

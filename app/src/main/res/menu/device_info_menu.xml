@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_networks"
+        android:icon="@drawable/ic_wifi"
+        android:title="@string/show_networks"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_edit_name"
+        android:icon="@drawable/ic_pencil"
+        android:title="@string/edit_device_name"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_reset"
+        android:icon="@drawable/ic_delete"
+        android:title="@string/reset_device"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_perform_action"
+        android:title="@string/perform_action"
+        app:showAsAction="never" />
+
+</menu>

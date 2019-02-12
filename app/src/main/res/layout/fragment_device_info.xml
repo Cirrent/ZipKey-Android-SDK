@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@drawable/spacer_16dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:showDividers="beginning|middle|end"
+    tools:context="com.sampleapp.ui.fragment.DeviceInfoFragment"
+    tools:ignore="MissingPrefix">
+
+    <TextView
+        android:id="@+id/text_device_id"
+        fontPath="fonts/montserrat_regular.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_24"
+        tools:text="Product 1" />
+
+    <TextView
+        android:id="@+id/text_device_description"
+        style="@style/AppTheme.TextDemoNormalGray"
+        fontPath="fonts/montserrat_regular.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:text="Add details here about the product that will get users excited to use it. List the main features. Talk about the important differentiators. Include display specs, model number or any other info that will also help user get insight about the product." />
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10" />
+
+    <ImageView
+        android:id="@+id/img_device"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        tools:src="@drawable/camera_1" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="12" />
+
+</LinearLayout>

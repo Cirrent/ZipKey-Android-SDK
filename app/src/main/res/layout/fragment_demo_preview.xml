@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/demo_preview_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="4dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/flipper_circle_selector"
+            android:button="@android:color/transparent"
+            android:checked="true"
+            android:clickable="false" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/flipper_circle_selector"
+            android:button="@android:color/transparent"
+            android:clickable="false" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/flipper_circle_selector"
+            android:button="@android:color/transparent"
+            android:clickable="false" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button_got_it"
+        style="@style/AppTheme.Button.GrayStroke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/got_it" />
+
+    <Button
+        android:id="@+id/button_got_it_highlighted"
+        style="@style/AppTheme.Button.Yellow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/got_it"
+        android:visibility="gone" />
+
+</LinearLayout>

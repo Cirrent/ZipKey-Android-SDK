@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Selected -->
+    <item android:state_focused="true" android:state_pressed="false">
+        <shape>
+            <solid android:color="#00ffffff" />
+        </shape>
+    </item>
+
+    <!-- Pressed -->
+    <item android:state_pressed="true">
+        <ripple android:color="#55000000" tools:targetApi="lollipop"> <!-- ripple effect color -->
+            <item android:id="@android:id/background">
+                <shape android:shape="rectangle">
+                    <corners android:radius="6dp" />
+                    <solid android:color="#33ffffff" /> <!-- background color -->
+                </shape>
+            </item>
+        </ripple>
+    </item>
+
+</selector>

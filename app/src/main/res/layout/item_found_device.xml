@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_item_found"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:saveEnabled="true"
+    app:theme="@style/AlertDialog.AppCompat.Light"
+    tools:ignore="MissingPrefix,ContentDescription">
+
+    <ImageView
+        android:id="@+id/is_checked"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:clickable="false"
+        android:duplicateParentState="true"
+        android:saveEnabled="true"
+        android:src="@drawable/selector_founded_device_checkmark" />
+
+    <LinearLayout
+        android:id="@+id/device_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:duplicateParentState="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/provider_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            tools:src="@drawable/smanos_logo_3" />
+
+        <TextView
+            android:id="@+id/text_id_device"
+            fontPath="fonts/montserrat_regular.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="6dp"
+            android:duplicateParentState="true"
+            android:textColor="@color/selector_black_yellow"
+            android:textSize="@dimen/text_13"
+            tools:text="WebCam" />
+
+        <TextView
+            android:id="@+id/text_type_device"
+            fontPath="fonts/montserrat_medium.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:duplicateParentState="true"
+            android:maxLines="2"
+            android:textColor="@color/selector_dark_gray_yellow"
+            android:textSize="@dimen/text_13"
+            tools:text="Smanos Wireless IP Camera Sm Wireless IP Camera Smanos Wireless IP Camera Smanos Wireless IP Camera" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_device"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_device" />
+
+</LinearLayout>

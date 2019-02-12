@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Text sizes-->
+    <dimen name="text_10">13sp</dimen>
+    <dimen name="text_12">14sp</dimen>
+    <dimen name="text_13">15sp</dimen>
+    <dimen name="text_14">16sp</dimen>
+    <dimen name="text_15">17sp</dimen>
+    <dimen name="text_16">18sp</dimen>
+    <dimen name="text_18">20sp</dimen>
+    <dimen name="text_20">22sp</dimen>
+    <dimen name="text_24">26sp</dimen>
+
+    <!--Text sizes for scalable screens-->
+    <dimen name="text_12_plus">16sp</dimen>
+    <dimen name="text_13_plus">17sp</dimen>
+    <dimen name="text_14_plus">18sp</dimen>
+    <dimen name="text_16_plus">20sp</dimen>
+    <dimen name="text_20_plus">24sp</dimen>
+    <dimen name="text_24_plus">28sp</dimen>
+
+</resources>

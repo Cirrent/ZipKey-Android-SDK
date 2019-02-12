@@ -1,0 +1,162 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="24dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="24dp">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/firstname_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/firstname"
+                style="@style/EditTextOnWhiteBackground"
+                fontPath="fonts/notosans_regular.ttf"
+                android:hint="@string/first_name"
+                android:inputType="textCapWords" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/lastname_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/lastname"
+                style="@style/EditTextOnWhiteBackground"
+                fontPath="fonts/notosans_regular.ttf"
+                android:hint="@string/last_name"
+                android:inputType="textCapWords" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/pwd_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/pwd"
+                style="@style/EditTextOnWhiteBackground"
+                fontPath="fonts/notosans_regular.ttf"
+                android:hint="@string/password"
+                android:inputType="textPassword" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/pwd_confirm_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/pwd_confirm"
+                style="@style/EditTextOnWhiteBackground"
+                fontPath="fonts/notosans_regular.ttf"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/email_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/email"
+                style="@style/EditTextOnWhiteBackground"
+                fontPath="fonts/notosans_regular.ttf"
+                android:hint="@string/e_mail"
+                android:inputType="textEmailAddress" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/company_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/company"
+                style="@style/EditTextOnWhiteBackground"
+                fontPath="fonts/notosans_regular.ttf"
+                android:hint="@string/company_name"
+                android:inputType="textCapWords" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingStart="5dp"
+            android:text="@string/this_will_be_used_as_your_cirrent_account_name"
+            android:textColor="@color/dark_gray_text"
+            android:textSize="@dimen/text_14"
+            app:paddingStart="5dp" />
+
+        <LinearLayout
+            android:id="@+id/layout_show_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/checkbox_show_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/CheckBoxGray" />
+
+            <TextView
+                android:id="@+id/checkbox_text"
+                fontPath="fonts/notosans_regular.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:textColor="@color/dark_gray_text"
+                android:textColorLink="@color/yellow"
+                android:textSize="@dimen/text_14"
+                tools:ignore="MissingPrefix"
+                tools:text="I have read and agree to the ..." />
+
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/checkbox_notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="3dp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/button_create_account"
+            style="@style/AppTheme.Button.Yellow"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="14dp"
+            android:text="@string/get_started_now" />
+
+    </LinearLayout>
+
+</ScrollView>

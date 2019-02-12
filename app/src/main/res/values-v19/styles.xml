@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="CheckBoxGray" parent="AppTheme.NoActionBar">
+        <item name="android:textColorSecondary">@color/dark_gray</item>
+    </style>
+
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        android:id="@+id/text_ssid"
+        fontPath="fonts/montserrat_regular.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_gray_text"
+        android:textSize="@dimen/text_18"
+        tools:text="MIKROTIK" />
+
+    <TextView
+        android:id="@+id/text_connected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/connected"
+        android:textColor="@color/yellow"
+        android:textSize="@dimen/text_12"
+        android:visibility="gone" />
+
+</LinearLayout>

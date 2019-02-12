@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_title"
+        fontPath="fonts/montserrat_regular.ttf"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/check_the_light"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_24"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.376" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="114dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="369dp" />
+
+    <ImageView
+        android:id="@+id/img_device_with_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_below="@+id/text_title"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_device_light"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <TextView
+        android:id="@+id/text_choose_network"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_device_with_button"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:text="@string/did_you_see_the_light_from_your_device"
+        android:textColor="@color/dark_gray_text"
+        android:textSize="@dimen/text_13"
+        app:layout_constraintBottom_toTopOf="@+id/btn_yes"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_device_with_button"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"
+        tools:layout_editor_absoluteX="192dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/btn_yes"
+        style="@style/AppTheme.Button.Yellow"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="0dp"
+        android:text="@string/yes"
+        app:layout_constraintBottom_toTopOf="@+id/light_up_again"
+        app:layout_constraintRight_toLeftOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/text_choose_network" />
+
+    <Button
+        android:id="@+id/btn_no"
+        style="@style/AppTheme.Button.YellowStroke"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="0dp"
+        android:text="@string/no"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="@+id/btn_yes" />
+
+    <TextView
+        android:id="@+id/light_up_again"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/selector_click_highlighted_text"
+        android:padding="8dp"
+        android:text="@string/light_up_again"
+        android:textColor="@color/yellow"
+        android:textSize="@dimen/text_13"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_yes" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_active"
+        style="@style/AppTheme.Fab"
+        android:src="@drawable/ic_arrow_forward_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="invisible" />
+
+</android.support.constraint.ConstraintLayout>

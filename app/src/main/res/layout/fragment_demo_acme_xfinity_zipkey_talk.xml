@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/button_ok_cool">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/spacer_16dp"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:showDividers="middle">
+
+            <TextView
+                style="@style/AppTheme.TextDemoLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/acme_and_xfinity_use_zipkey"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/acme_xfinity_zipkey_talk" />
+
+            <TextView
+                style="@style/AppTheme.TextDemoNormalGray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/zipkey_is_available_in_your_neighborhood_through___service" />
+
+            <LinearLayout
+                android:id="@+id/url_zipkey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="16dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/comcast_xfinity_logo" />
+
+                <TextView
+                    android:id="@+id/url_zipkey_text"
+                    style="@style/AppTheme.TextDemoNormalGray"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/www_xfinity_com"
+                    android:textColor="@color/selector_yellow_blue" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button_ok_cool"
+        style="@style/AppTheme.Button.Yellow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="24dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/ok_that_s_cool" />
+
+</RelativeLayout>

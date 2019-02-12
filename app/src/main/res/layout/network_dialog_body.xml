@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="25dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="@dimen/text_12"
+        android:text="@string/status" />
+
+    <TextView
+        android:id="@+id/text_network_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_14"
+        android:textColor="@color/dark_gray_text"
+        fontPath="fonts/notosans_bold.ttf" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="@dimen/text_12"
+        android:text="@string/security" />
+
+    <TextView
+        android:id="@+id/text_network_security"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_14"
+        android:textColor="@color/dark_gray_text"
+        fontPath="fonts/notosans_bold.ttf" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="@dimen/text_12"
+        android:text="@string/bssid" />
+
+    <TextView
+        android:id="@+id/text_network_bssid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_14"
+        android:textColor="@color/dark_gray_text"
+        fontPath="fonts/notosans_bold.ttf" />
+
+</LinearLayout>

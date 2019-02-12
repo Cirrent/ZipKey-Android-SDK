@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white">#ffffff</color>
+    <color name="yellow">#ffc400</color>
+    <color name="yellow_shadow">#44ffc400</color>
+    <color name="yellow_highlight">#fffcf1</color>
+    <color name="dark_yellow">#e7b200</color>
+    <color name="transparent_yellow">#deffc400</color>
+    <color name="light_gray">#f7f7f7</color>
+    <color name="mid_gray">#e3e3e3</color>
+    <color name="dark_gray">#a8a8a8</color>
+    <color name="dark_gray_pressed">#909090</color>
+    <color name="dark_gray_shadow">#44a8a8a8</color>
+    <color name="dark_gray_text">#666666</color>
+    <color name="dark_gray_text_darker">#505050</color>
+    <color name="transparent">#00ffffff</color>
+
+    <color name="transparent_white">#9bffffff</color>
+    <color name="light_blue">#aedef1ff</color>
+    <color name="red">#D9514D</color>
+    <color name="green">#4DD965</color>
+    <color name="blue">#0099e2</color>
+    <color name="blue_pressed">#007cb7</color>
+    <color name="blue_shadow">#440099e2</color>
+    <color name="transparent_blue">#a60099e2</color>
+    <color name="transparent_light_blue">#d29fddff</color>
+    <color name="more_transparent_light_blue">#a69fddff</color>
+    <color name="transparent_gray">#d2808080</color>
+    <color name="more_transparent_gray">#a6808080</color>
+
+    <color name="black">#000000</color>
+    <color name="transparent_divider">#4095989a</color>
+    <color name="foreground_material_light">#919191</color>
+    <color name="primary_text_default_material_light">#deb9b9b9</color>
+
+    <!--Named colors-->
+    <color name="item_selected">@color/yellow</color>
+    <color name="item_unselected">@color/dark_gray</color>
+
+</resources>

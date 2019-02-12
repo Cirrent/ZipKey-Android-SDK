@@ -1,0 +1,106 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sampleapp.ui.fragment.AddDeviceFragment"
+    tools:ignore="MissingPrefix,ContentDescription">
+
+    <LinearLayout
+        android:id="@+id/layout_add_device_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical"
+        android:paddingTop="25dp"
+        android:paddingBottom="25dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_24"
+                android:textColor="@color/black"
+                android:text="@string/found"
+                fontPath="fonts/montserrat_regular.ttf" />
+
+            <TextView
+                android:id="@+id/text_product_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:textSize="@dimen/text_24"
+                android:textColor="@color/black"
+                fontPath="fonts/montserrat_regular.ttf" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_24"
+                android:textColor="@color/black"
+                android:text="@string/product_s"
+                fontPath="fonts/montserrat_regular.ttf" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_select_product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:text="@string/select_your_product"
+            android:textColor="@color/dark_gray_text"
+            android:textSize="@dimen/text_12"
+            android:lineSpacingExtra="3sp"
+            fontPath="fonts/notosans_regular.ttf" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_no_devices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/no_devices_found"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:visibility="gone" />
+
+    <ListView
+        android:layout_below="@+id/layout_add_device_header"
+        android:id="@+id/list_nearby_devices"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/light_gray"
+        android:dividerHeight="1dp"
+        android:drawSelectorOnTop="true"
+        android:footerDividersEnabled="true"
+        android:headerDividersEnabled="true"
+        android:listSelector="@drawable/list_selector"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/layout_product_not_listed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone">
+
+        <include layout="@layout/footer_add_new_device" />
+
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        style="@style/AppTheme.Fab"
+        android:src="@drawable/ic_arrow_forward_white"
+        android:visibility="gone" />
+
+</RelativeLayout>

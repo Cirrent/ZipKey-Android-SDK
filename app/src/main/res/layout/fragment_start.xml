@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sampleapp.ui.activity.StartActivity"
+    tools:ignore="MissingPrefix,ContentDescription">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/house" />
+
+    <Button
+        android:id="@+id/button_sign_in"
+        android:layout_above="@+id/button_show_walkthru"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/sign_in"
+        style="@style/AppTheme.Button.Yellow" />
+
+    <Button
+        android:id="@+id/button_show_walkthru"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/walk_me_through_this"
+        android:layout_above="@+id/button_create_account"
+        style="@style/AppTheme.Button.WhiteStroke" />
+
+    <TextView
+        android:id="@+id/button_create_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/selector_white_yellow"
+        android:text="@string/create_an_account" />
+
+</RelativeLayout>

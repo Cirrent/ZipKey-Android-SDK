@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    tools:showIn="@layout/fragment_demo_guide">
+
+    <View
+        android:layout_width="39dp"
+        android:layout_height="45dp"
+        android:background="@drawable/ic_shape_guide_step" />
+
+    <TextView
+        fontPath="fonts/montserrat_regular.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="1"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+</FrameLayout>

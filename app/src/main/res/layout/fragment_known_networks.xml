@@ -1,0 +1,31 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="25dp"
+    tools:context="com.sampleapp.ui.fragment.KnownNetworksFragment">
+
+    <ListView
+        android:id="@+id/list_known_networks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="1dp"
+        android:drawSelectorOnTop="true"
+        android:listSelector="@drawable/list_selector" />
+
+    <TextView
+        android:id="@+id/text_no_networks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/no_known_networks_found"
+        android:visibility="gone" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        style="@style/AppTheme.Fab"
+        android:src="@drawable/ic_add" />
+
+</RelativeLayout>

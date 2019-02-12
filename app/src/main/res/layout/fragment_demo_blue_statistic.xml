@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingPrefix">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.3"
+        android:scaleType="centerCrop"
+        android:src="@drawable/splash_background_img" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="18"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="2" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="3"
+                android:src="@drawable/ic_lock_blue" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView5"
+                fontPath="fonts/montserrat_regular.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/that_was_easy"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/text_20_plus" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView7"
+                fontPath="fonts/montserrat_regular.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/onboarding_stats"
+                android:textColor="@color/dark_gray_text"
+                android:textSize="@dimen/text_14_plus"
+                android:textStyle="bold" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:divider="@drawable/spacer_16dp"
+                android:orientation="horizontal"
+                android:showDividers="middle">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    fontPath="fonts/montserrat_regular.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:text="@string/onboarding_experience"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_12_plus"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    fontPath="fonts/montserrat_regular.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="8"
+                    android:text="@string/avg_taps"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_12_plus"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline6"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline7"
+                    app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    fontPath="fonts/montserrat_regular.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="10"
+                    android:text="@string/success_rate"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_12_plus"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline7"
+                    app:layout_constraintRight_toLeftOf="@+id/guideline8"
+                    app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    fontPath="fonts/montserrat_regular.ttf"
+                    android:layout_width="64dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/rating"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_12_plus"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline8"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_blue"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/blue" />
+
+        <LinearLayout
+            android:id="@+id/table"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="18"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:divider="@drawable/spacer_16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingEnd="16dp"
+                android:paddingRight="16dp"
+                android:paddingStart="16dp"
+                android:showDividers="middle">
+
+                <TextView
+                    android:id="@+id/subscriber"
+                    fontPath="fonts/montserrat_regular.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:text="@string/zipkey_subscriber"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_16_plus" />
+
+                <TextView
+                    android:id="@+id/subscriber_taps"
+                    fontPath="fonts/montserrat_regular.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:text="@string/avg_taps_subscriber_value"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_16_plus" />
+
+                <TextView
+                    android:id="@+id/subscriber_percents"
+                    fontPath="fonts/montserrat_regular.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:text="@string/percents_subscriber_value"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_16_plus" />
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="15dp"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/ic_stars_4" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/mid_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:divider="@drawable/spacer_16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingEnd="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingStart="16dp"
+                android:showDividers="middle">
+
+                <TextView
+                    android:id="@+id/coverage"
+                    fontPath="fonts/montserrat_regular.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:text="@string/zipkey_coverage"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_16_plus" />
+
+                <TextView
+                    android:id="@+id/coverage_taps"
+                    fontPath="fonts/montserrat_regular.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:text="@string/avg_taps_coverage_value"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_16_plus" />
+
+                <TextView
+                    android:id="@+id/coverage_percents"
+                    fontPath="fonts/montserrat_regular.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:text="@string/percents_coverage_value"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_16_plus" />
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="15dp"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/ic_stars_3" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/mid_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:divider="@drawable/spacer_16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingEnd="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingStart="16dp"
+                android:showDividers="middle">
+
+                <TextView
+                    android:id="@+id/soft_app"
+                    fontPath="fonts/montserrat_regular.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:text="@string/soft_ap"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_16_plus" />
+
+                <TextView
+                    android:id="@+id/soft_app_taps"
+                    fontPath="fonts/montserrat_regular.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:text="@string/avg_taps_soft_ap_value"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_16_plus" />
+
+                <TextView
+                    android:id="@+id/soft_app_percents"
+                    fontPath="fonts/montserrat_regular.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:text="@string/percents_soft_ap_value"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/text_16_plus" />
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="15dp"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/ic_stars_2" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_finish_walkthru"
+            style="@style/AppTheme.Button.Blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/finish_walkthru" />
+
+        <Button
+            android:id="@+id/button_learn_more"
+            style="@style/AppTheme.Button.BlueStroke"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/learn_more_about_zipkey" />
+
+    </LinearLayout>
+
+</FrameLayout>

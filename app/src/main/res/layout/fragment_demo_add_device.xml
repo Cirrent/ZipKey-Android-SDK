@@ -1,0 +1,107 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sampleapp.ui.fragment.AddDeviceFragment"
+    tools:ignore="MissingPrefix,ContentDescription">
+
+    <LinearLayout
+        android:id="@+id/layout_add_device_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        android:paddingTop="25dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                fontPath="fonts/montserrat_regular.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/found"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_24" />
+
+            <TextView
+                android:id="@+id/text_product_amount"
+                fontPath="fonts/montserrat_regular.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_24" />
+
+            <TextView
+                fontPath="fonts/montserrat_regular.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/product_s"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_24" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_select_product"
+            fontPath="fonts/notosans_regular.ttf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="13dp"
+            android:lineSpacingExtra="3sp"
+            android:text="@string/select_your_product"
+            android:textColor="@color/dark_gray_text"
+            android:textSize="@dimen/text_12" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_no_devices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/no_devices_found"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/list_nearby_devices"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layout_add_device_header"
+        android:divider="@color/light_gray"
+        android:dividerHeight="1dp"
+        android:drawSelectorOnTop="true"
+        android:footerDividersEnabled="true"
+        android:headerDividersEnabled="true"
+        android:listSelector="@drawable/list_selector"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/layout_product_not_listed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:visibility="gone">
+
+        <include layout="@layout/footer_add_new_device" />
+
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        style="@style/AppTheme.Fab"
+        android:src="@drawable/ic_arrow_forward_white"
+        android:visibility="gone" />
+
+</RelativeLayout>

@@ -1,7 +1,12 @@
 package com.sampleapp.ui.fragment;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
@@ -12,6 +17,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -37,6 +43,7 @@ import co.stkotok.swipetodelete.STDItemDecoration;
 
 public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
+    public static final String TAG = HomeFragment.class.getSimpleName();
     private RecyclerView devicesRecyclerView;
     private TextView textNoManagedDevices;
     private TextView textUnableToReachCloud;
@@ -44,6 +51,30 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     private FloatingActionButton buttonFloating;
     private AlertDialog softApSsidDialog;
     private ManagedDeviceAdapter devicesAdapter;
+
+    private BroadcastReceiver networkChangeReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            boolean internetConnected = false;
+
+            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (cm == null) {
+                Log.d(TAG, "ConnectivityManager is null");
+                return;
+            }
+            NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+            if (activeNetwork != null) {
+                boolean wifiConnected = activeNetwork.getType() == ConnectivityManager.TYPE_WIFI;
+                boolean mobileConnected = activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE;
+                if (wifiConnected || mobileConnected) {
+                    internetConnected = true;
+                }
+            }
+
+            Log.d(TAG, "Internet was " + (internetConnected ? "" : "dis") + "connected");
+            refreshViews(internetConnected);
+        }
+    };
 
     public HomeFragment() {
         // Required empty public constructor
@@ -80,6 +111,20 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
         Menu sideMenu = ((NavigationView) getActivity().findViewById(R.id.nav_view)).getMenu();
         sideMenu.findItem(R.id.nav_products).setChecked(true);
+
+        registerNetworkChangeReceiver();
+    }
+
+    private void registerNetworkChangeReceiver() {
+        IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
+        getActivity().registerReceiver(networkChangeReceiver, intentFilter);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        getActivity().unregisterReceiver(networkChangeReceiver);
     }
 
     public void checkLocationService() {
@@ -192,14 +237,25 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             public void failedToReachCloud(String error) {
                 super.failedToReachCloud(error);
 
-                buttonFloating.setVisibility(View.GONE);
-                devicesRecyclerView.setVisibility(View.GONE);
-                textNoManagedDevices.setVisibility(View.GONE);
-                textUnableToReachCloud.setVisibility(View.VISIBLE);
-                buttonRetry.setVisibility(View.VISIBLE);
+                refreshViews(false);
             }
         }.doRequest(new SimpleProgressDialog(getContext(), getString(R.string.getting_managed_devices)));
     }
+
+    private void refreshViews(boolean internetConnected) {
+        if (internetConnected) {
+            textUnableToReachCloud.setVisibility(View.GONE);
+            buttonRetry.setVisibility(View.GONE);
+            getManagedDevices(false);
+        } else {
+            buttonFloating.setVisibility(View.GONE);
+            devicesRecyclerView.setVisibility(View.GONE);
+            textNoManagedDevices.setVisibility(View.GONE);
+            textUnableToReachCloud.setVisibility(View.VISIBLE);
+            buttonRetry.setVisibility(View.VISIBLE);
+        }
+    }
+
 
     private void continueInterruptedDeviceSetup() {
         String serializedSetupData = Prefs.SOFT_AP_DEVICE_SETUP_DATA.getValue();

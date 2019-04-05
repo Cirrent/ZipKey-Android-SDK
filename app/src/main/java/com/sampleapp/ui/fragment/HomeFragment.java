@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
@@ -25,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.cirrent.cirrentsdk.internal.net.util.NetUtils;
 import com.cirrent.cirrentsdk.service.CirrentService;
 import com.cirrent.cirrentsdk.service.LocationService;
 import com.sampleapp.Prefs;
@@ -55,23 +54,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     private BroadcastReceiver networkChangeReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            boolean internetConnected = false;
+            boolean internetConnected = new NetUtils(getActivity()).isConnectedToNetwork();
 
-            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-            if (cm == null) {
-                Log.d(TAG, "ConnectivityManager is null");
-                return;
-            }
-            NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-            if (activeNetwork != null) {
-                boolean wifiConnected = activeNetwork.getType() == ConnectivityManager.TYPE_WIFI;
-                boolean mobileConnected = activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE;
-                if (wifiConnected || mobileConnected) {
-                    internetConnected = true;
-                }
-            }
+            Log.d(TAG, "Internet was " + (internetConnected ? "" : "dis") + "connected, will refresh screen");
 
-            Log.d(TAG, "Internet was " + (internetConnected ? "" : "dis") + "connected");
             refreshViews(internetConnected);
         }
     };

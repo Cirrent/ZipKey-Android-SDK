@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -51,14 +52,34 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     private AlertDialog softApSsidDialog;
     private ManagedDeviceAdapter devicesAdapter;
 
+    private final int maxAttemptsCount = 2 * 60;
+    private int attemptsCount = 0;
+    private int delayForNextCheckingInternetConnection = 1000;
+    private Handler handler = new Handler();
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            getManagedDevices(true);
+        }
+    };
     private BroadcastReceiver networkChangeReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             boolean internetConnected = new NetUtils(getActivity()).isConnectedToNetwork();
 
-            Log.d(TAG, "Internet was " + (internetConnected ? "" : "dis") + "connected, will refresh screen");
-
-            refreshViews(internetConnected);
+            attemptsCount = 0;
+            if (internetConnected) {
+                attemptsCount++;
+                Log.d(TAG, "Network was connected, will request managed devices after " + delayForNextCheckingInternetConnection / 1000 + "seconds, " + attemptsCount + " attempt");
+                handler.postDelayed(runnable, delayForNextCheckingInternetConnection);
+            } else {
+                Log.d(TAG, "Network was disconnected, will refresh screen");
+                buttonFloating.setVisibility(View.GONE);
+                devicesRecyclerView.setVisibility(View.GONE);
+                textNoManagedDevices.setVisibility(View.GONE);
+                textUnableToReachCloud.setVisibility(View.VISIBLE);
+                buttonRetry.setVisibility(View.VISIBLE);
+            }
         }
     };
 
@@ -223,25 +244,22 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             public void failedToReachCloud(String error) {
                 super.failedToReachCloud(error);
 
-                refreshViews(false);
+                if (attemptsCount < maxAttemptsCount) {
+                    handler.postDelayed(runnable, delayForNextCheckingInternetConnection);
+                    attemptsCount++;
+                    Log.d(TAG, "Network was connected, will request managed devices after " + delayForNextCheckingInternetConnection / 1000 + " seconds, " + attemptsCount + " attempt");
+                } else {
+                    attemptsCount = 0;
+                }
+
+                buttonFloating.setVisibility(View.GONE);
+                devicesRecyclerView.setVisibility(View.GONE);
+                textNoManagedDevices.setVisibility(View.GONE);
+                textUnableToReachCloud.setVisibility(View.VISIBLE);
+                buttonRetry.setVisibility(View.VISIBLE);
             }
         }.doRequest(new SimpleProgressDialog(getContext(), getString(R.string.getting_managed_devices)));
     }
-
-    private void refreshViews(boolean internetConnected) {
-        if (internetConnected) {
-            textUnableToReachCloud.setVisibility(View.GONE);
-            buttonRetry.setVisibility(View.GONE);
-            getManagedDevices(false);
-        } else {
-            buttonFloating.setVisibility(View.GONE);
-            devicesRecyclerView.setVisibility(View.GONE);
-            textNoManagedDevices.setVisibility(View.GONE);
-            textUnableToReachCloud.setVisibility(View.VISIBLE);
-            buttonRetry.setVisibility(View.VISIBLE);
-        }
-    }
-
 
     private void continueInterruptedDeviceSetup() {
         String serializedSetupData = Prefs.SOFT_AP_DEVICE_SETUP_DATA.getValue();

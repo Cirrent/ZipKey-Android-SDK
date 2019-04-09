@@ -221,7 +221,7 @@ public class HomeFragment extends BaseFragment
             @Override
             public void failedToReachCloud(String error) {
                 super.failedToReachCloud(error);
-                connectionChecker.failedToReachCloud();
+                connectionChecker.failedToReachCloud(getContext());
             }
         }.doRequest(progressDialog);
     }

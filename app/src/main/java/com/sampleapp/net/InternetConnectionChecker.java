@@ -12,11 +12,13 @@ import com.cirrent.cirrentsdk.internal.net.util.NetUtils;
 
 public class InternetConnectionChecker {
 
-    public static final String TAG = InternetConnectionChecker.class.getSimpleName();
-    private final int maxAttemptsCount = 2 * 60;
-    private Listener listener;
+    private static final String TAG = InternetConnectionChecker.class.getSimpleName();
+    private static final int MAX_ATTEMPTS_TO_CONNECT = 30;
+    private static final int DELAY_MILLIS = 1000;
+
+    private boolean callAfterReceiverWasRegistered = false;
     private int attemptsCount = 0;
-    private int delayForNextCheckingInternetConnection = 1000;
+    private Listener listener;
     private Handler handler = new Handler();
     private Runnable runnable = new Runnable() {
         @Override
@@ -27,7 +29,11 @@ public class InternetConnectionChecker {
     private BroadcastReceiver networkChangeReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            networkStateChanged(context);
+            if (callAfterReceiverWasRegistered) {
+                callAfterReceiverWasRegistered = false;
+            } else {
+                failedToReachCloud(context);
+            }
         }
     };
 
@@ -36,6 +42,7 @@ public class InternetConnectionChecker {
     }
 
     public void registerReceiver(Activity activity) {
+        callAfterReceiverWasRegistered = true;
         IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
         activity.registerReceiver(networkChangeReceiver, intentFilter);
     }
@@ -44,26 +51,18 @@ public class InternetConnectionChecker {
         activity.unregisterReceiver(networkChangeReceiver);
     }
 
-    public void failedToReachCloud() {
-        if (attemptsCount < maxAttemptsCount) {
-            attemptsCount++;
-            Log.d(TAG, "Network was connected, will request managed devices after " + delayForNextCheckingInternetConnection / 1000 + " seconds, attempt " + attemptsCount);
-            handler.postDelayed(runnable, delayForNextCheckingInternetConnection);
-        } else {
-            listener.unconnected();
-        }
-    }
-
-    private void networkStateChanged(Context context) {
+    public void failedToReachCloud(Context context) {
         boolean connectedToNetwork = new NetUtils(context).isConnectedToNetwork();
 
-        attemptsCount = 0;
-        if (connectedToNetwork) {
+        if (connectedToNetwork && attemptsCount < MAX_ATTEMPTS_TO_CONNECT) {
             attemptsCount++;
-            Log.d(TAG, "Network was connected, will request managed devices after " + delayForNextCheckingInternetConnection / 1000 + " seconds, attempt " + attemptsCount);
-            handler.postDelayed(runnable, delayForNextCheckingInternetConnection);
+            String msg = "Network was connected, will try to connect in " + DELAY_MILLIS / 1000
+                    + " seconds," + " attempt " + attemptsCount + " of " + MAX_ATTEMPTS_TO_CONNECT;
+            Log.d(TAG, msg);
+            handler.postDelayed(runnable, DELAY_MILLIS);
         } else {
-            Log.d(TAG, "Network was failedToReachCloud, will refresh screen");
+            attemptsCount = 0;
+            Log.d(TAG, "Network was failedToReachCloud, no more attempting to connect");
             listener.unconnected();
         }
     }
@@ -73,5 +72,4 @@ public class InternetConnectionChecker {
 
         void unconnected();
     }
-
 }

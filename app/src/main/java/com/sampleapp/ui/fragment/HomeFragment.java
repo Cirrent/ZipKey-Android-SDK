@@ -27,6 +27,7 @@ import com.sampleapp.SimpleProgressDialog;
 import com.sampleapp.net.InternetConnectionChecker;
 import com.sampleapp.net.model.ManagedDeviceList;
 import com.sampleapp.net.requester.ManagedDevicesRequester;
+import com.sampleapp.ui.ViewVisibilityAnimator;
 import com.sampleapp.ui.activity.DeviceInfoActivity;
 import com.sampleapp.ui.activity.HomeActivity;
 import com.sampleapp.ui.adapter.ManagedDeviceAdapter;
@@ -42,6 +43,8 @@ public class HomeFragment extends BaseFragment
     private RecyclerView devicesRecyclerView;
     private TextView textNoManagedDevices;
     private TextView textUnableToReachCloud;
+    private TextView textTryingToReachCloud;
+    private ViewVisibilityAnimator tryingToReachCloudAnimator;
     private Button buttonRetry;
     private FloatingActionButton buttonFloating;
     private AlertDialog softApSsidDialog;
@@ -60,11 +63,13 @@ public class HomeFragment extends BaseFragment
 
     @Override
     public void tryToConnect() {
+        tryingToReachCloudAnimator.startBlinking();
         getManagedDevices(true, false);
     }
 
     @Override
     public void unconnected() {
+        tryingToReachCloudAnimator.stopBlinking();
         switchUiToUnconnectedState();
     }
 
@@ -75,6 +80,7 @@ public class HomeFragment extends BaseFragment
 
         changeActionBarState(false, false, getString(R.string.home_title));
         initViews(view);
+        tryingToReachCloudAnimator = new ViewVisibilityAnimator(textTryingToReachCloud, 500);
 
         return view;
     }
@@ -144,6 +150,7 @@ public class HomeFragment extends BaseFragment
 
         textNoManagedDevices = (TextView) view.findViewById(R.id.text_no_managed_devices);
         textUnableToReachCloud = (TextView) view.findViewById(R.id.text_unable_to_reach_cloud);
+        textTryingToReachCloud = (TextView) view.findViewById(R.id.trying_to_rich_cloud);
         buttonRetry = (Button) view.findViewById(R.id.button_retry);
         buttonFloating = (FloatingActionButton) view.findViewById(R.id.floating_action_button);
 
@@ -198,6 +205,7 @@ public class HomeFragment extends BaseFragment
         new ManagedDevicesRequester(getContext(), Prefs.ENCODED_CREDENTIALS.getValue()) {
             @Override
             public void onSuccess(final String manageToken, final List<ManagedDeviceList.ProductCloudDevice> managedDevices) {
+                tryingToReachCloudAnimator.stopBlinking();
                 textUnableToReachCloud.setVisibility(View.GONE);
                 buttonRetry.setVisibility(View.GONE);
                 buttonFloating.setVisibility(View.VISIBLE);

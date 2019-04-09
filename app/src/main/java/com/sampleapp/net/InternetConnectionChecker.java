@@ -12,9 +12,9 @@ import com.cirrent.cirrentsdk.internal.net.util.NetUtils;
 
 public class InternetConnectionChecker {
 
-    private static final String TAG = InternetConnectionChecker.class.getSimpleName();
     private static final int MAX_ATTEMPTS_TO_CONNECT = 30;
     private static final int DELAY_MILLIS = 1000;
+    private static final String TAG = InternetConnectionChecker.class.getSimpleName();
 
     private boolean callAfterReceiverWasRegistered = false;
     private int attemptsCount = 0;

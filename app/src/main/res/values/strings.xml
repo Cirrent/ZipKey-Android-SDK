@@ -88,6 +88,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="home_title">My Products</string>
     <string name="no_managed_devices_found">No managed devices found</string>
+    <string name="trying_to_rich_cloud">Trying to rich cloud…</string>
     <string name="zipkey">ZipKey</string>
     <string name="developer_tool">Developer Tool</string>
     <string name="replace_with_your_own_action">Replace with your own action</string>

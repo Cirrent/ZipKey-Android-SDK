@@ -5,6 +5,18 @@
     tools:context="com.sampleapp.ui.fragment.HomeFragment">
 
     <TextView
+        android:id="@+id/trying_to_rich_cloud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/text_no_managed_devices"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:text="@string/trying_to_rich_cloud"
+        android:textColor="@color/dark_gray_text"
+        android:visibility="gone" />
+
+    <TextView
         android:id="@+id/text_no_managed_devices"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

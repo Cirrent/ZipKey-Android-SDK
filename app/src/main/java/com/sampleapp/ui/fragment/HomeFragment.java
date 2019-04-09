@@ -60,7 +60,7 @@ public class HomeFragment extends BaseFragment
 
     @Override
     public void tryToConnect() {
-        getManagedDevices(false);
+        getManagedDevices(true, false);
     }
 
     @Override
@@ -187,6 +187,14 @@ public class HomeFragment extends BaseFragment
     }
 
     public void getManagedDevices(final boolean isRetryButtonClicked) {
+        getManagedDevices(isRetryButtonClicked, true);
+    }
+
+    public void getManagedDevices(final boolean isRetryButtonClicked, boolean showProgressDialog) {
+        SimpleProgressDialog progressDialog = null;
+        if (showProgressDialog) {
+            progressDialog = new SimpleProgressDialog(getContext(), getString(R.string.getting_managed_devices));
+        }
         new ManagedDevicesRequester(getContext(), Prefs.ENCODED_CREDENTIALS.getValue()) {
             @Override
             public void onSuccess(final String manageToken, final List<ManagedDeviceList.ProductCloudDevice> managedDevices) {
@@ -215,7 +223,7 @@ public class HomeFragment extends BaseFragment
                 super.failedToReachCloud(error);
                 connectionChecker.failedToReachCloud();
             }
-        }.doRequest(new SimpleProgressDialog(getContext(), getString(R.string.getting_managed_devices)));
+        }.doRequest(progressDialog);
     }
 
     private void switchUiToUnconnectedState() {

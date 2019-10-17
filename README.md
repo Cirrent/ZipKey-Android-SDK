@@ -10,7 +10,13 @@ repositories {
 2. Add dependencies:
 ```groovy
 dependencies {
-    implementation 'com.cirrent:cirrentsdk:1.2.32'
-    implementation 'com.cirrent:nis:1.1.2' // in case if you need NetworkIntelligenceService
+    implementation 'com.cirrent:cirrentsdk:1.2.33'
 }
 ```
+## CHANGELOG
+### 1.2.33
+#### Added
+- `boolean isProviderKnownNetwork` and `String jwt` to the `DeviceInfoCallback.onDevicesFound(List<Device> nearbyDevices)` method.
+### 1.2.32
+#### Added
+- initial release

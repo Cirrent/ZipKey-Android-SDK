@@ -10,10 +10,13 @@ repositories {
 2. Add dependencies:
 ```groovy
 dependencies {
-    implementation 'com.cirrent:cirrentsdk:1.2.37'
+    implementation 'com.cirrent:cirrentsdk:1.3.1'
 }
 ```
 ## CHANGELOG
+### 1.3.1
+#### Added
+- Mobile Onboarding Analytics;
 ### 1.2.37
 #### Added
 - account id checking logic;

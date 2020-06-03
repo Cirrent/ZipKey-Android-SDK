@@ -10,10 +10,15 @@ repositories {
 2. Add dependencies:
 ```groovy
 dependencies {
-    implementation 'com.cirrent:cirrentsdk:1.3.2'
+    implementation 'com.cirrent:cirrentsdk:1.3.3'
 }
 ```
 ## CHANGELOG
+### 1.3.3
+#### Added
+- an ability to set onboarding session timeout (default value = 15 mins);
+#### Changed
+- Mobile Onboarding Analytics renamed to Mobile App Intelligence;
 ### 1.3.2
 #### Added
 - OnboardingAnalytics.createToken();

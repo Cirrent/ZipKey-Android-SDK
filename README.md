@@ -10,10 +10,13 @@ repositories {
 2. Add dependencies:
 ```groovy
 dependencies {
-    implementation 'com.cirrent:cirrentsdk:1.3.3'
+    implementation 'com.cirrent:cirrentsdk:1.3.4'
 }
 ```
 ## CHANGELOG
+### 1.3.4
+#### Fixed
+- a bug where MAI can't generate a correct token;
 ### 1.3.3
 #### Added
 - an ability to set onboarding session timeout (default value = 15 mins);

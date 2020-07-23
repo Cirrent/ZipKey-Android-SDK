@@ -10,10 +10,13 @@ repositories {
 2. Add dependencies:
 ```groovy
 dependencies {
-    implementation 'com.cirrent:cirrentsdk:1.3.4'
+    implementation 'com.cirrent:cirrentsdk:1.3.5'
 }
 ```
 ## CHANGELOG
+### 1.3.5
+#### Changed
+- improved stability;
 ### 1.3.4
 #### Fixed
 - a bug where MAI can't generate a correct token;

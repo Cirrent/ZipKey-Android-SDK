@@ -14,6 +14,9 @@ dependencies {
 }
 ```
 ## CHANGELOG
+### 1.3.6
+#### Added
+- `MobileAppIntelligence.setDebugMode(boolean enabled)` . This method gives an ability to see more log entries.
 ### 1.3.5
 #### Changed
 - improved stability;

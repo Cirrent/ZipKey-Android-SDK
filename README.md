@@ -10,7 +10,7 @@ repositories {
 2. Add dependencies:
 ```groovy
 dependencies {
-    implementation 'com.cirrent:cirrentsdk:1.3.5'
+    implementation 'com.cirrent:cirrentsdk:1.3.6'
 }
 ```
 ## CHANGELOG

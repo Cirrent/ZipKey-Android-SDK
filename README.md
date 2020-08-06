@@ -10,10 +10,13 @@ repositories {
 2. Add dependencies:
 ```groovy
 dependencies {
-    implementation 'com.cirrent:cirrentsdk:1.3.6'
+    implementation 'com.cirrent:cirrentsdk:1.3.7'
 }
 ```
 ## CHANGELOG
+### 1.3.7
+#### Changed
+- improved stability and performance.
 ### 1.3.6
 #### Added
 - `MobileAppIntelligence.setDebugMode(boolean enabled)` . This method gives an ability to see more log entries.

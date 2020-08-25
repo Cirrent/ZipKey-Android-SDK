@@ -10,10 +10,13 @@ repositories {
 2. Add dependencies:
 ```groovy
 dependencies {
-    implementation 'com.cirrent:cirrentsdk:1.3.7'
+    implementation 'com.cirrent:cirrentsdk:1.3.8'
 }
 ```
 ## CHANGELOG
+### 1.3.8
+#### Fixed
+- a bug where MAI crashes the app with StringIndexOutOfBoundsException due to non-standart LOCATION field value in M-SEARCH response;
 ### 1.3.7
 #### Changed
 - improved stability and performance.

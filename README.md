@@ -10,13 +10,18 @@ repositories {
 2. Add dependencies:
 ```groovy
 dependencies {
-    implementation 'com.cirrent:cirrentsdk:1.3.8'
+    implementation 'com.cirrent:cirrentsdk:1.3.9'
 }
 ```
 ## CHANGELOG
+### 1.3.9
+#### Fixed
+- fixed a bug where the candidate networks list may contain SoftAP network.
+#### Added 
+- an ability to restart "init" data collecting if location permission is granted.
 ### 1.3.8
 #### Fixed
-- a bug where MAI crashes the app with StringIndexOutOfBoundsException due to non-standart LOCATION field value in M-SEARCH response;
+- a bug where MAI crashes the app with StringIndexOutOfBoundsException due to non-standart LOCATION field value in M-SEARCH response.
 ### 1.3.7
 #### Changed
 - improved stability and performance.

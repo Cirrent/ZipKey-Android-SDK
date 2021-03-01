@@ -10,10 +10,16 @@ repositories {
 2. Add dependencies:
 ```groovy
 dependencies {
-    implementation 'com.cirrent:cirrentsdk:1.3.9'
+    implementation 'com.cirrent:cirrentsdk:1.5.2'
 }
 ```
 ## CHANGELOG
+### 1.5.2
+#### Changed
+- API has been simplified: now `MobileAppIntelligence.init(Context appContext, String token, MAICallback callback)` the only method that requires  `Context` and  `MAICallback`;
+- BLE & Soft AP onboarding protocols have been changed;
+- ZipKey onboarding type has been completely removed;
+- improved stability.
 ### 1.3.9
 #### Fixed
 - fixed a bug where the candidate networks list may contain SoftAP network.

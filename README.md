@@ -10,10 +10,18 @@ repositories {
 2. Add dependencies:
 ```groovy
 dependencies {
-    implementation 'com.cirrent:cirrentsdk:1.5.2'
+    implementation 'com.cirrent:cirrentsdk:1.6.0'
 }
 ```
 ## CHANGELOG
+### 1.6.0
+#### Changed
+- now to report step details you need to call `enterStep(StepData)` method (you can create `StepData` object using `StepData.create()` method);
+- now to report end onboarding details you need to call `endOnboarding(EndData)` method (you can create `EndData` object using `EndData.create()` method);
+- steps "outside" onboarding were allowed (now you can use `enterStep(StepData)` right after MAI was initialized).
+#### Added
+- added an ability to report an onboarding type along with the `startOnboarding(OnboardingType)` method;
+- added an ability to add debug info to `StepData` and `EndData` objects using `StepData.addDebugInfo(Map<String, String>)` or `EndData.addDebugInfo(Map<String, String>)` methods.
 ### 1.5.2
 #### Changed
 - API has been simplified: now `MobileAppIntelligence.init(Context appContext, String token, MAICallback callback)` the only method that requires  `Context` and  `MAICallback`;
@@ -23,7 +31,7 @@ dependencies {
 ### 1.3.9
 #### Fixed
 - fixed a bug where the candidate networks list may contain SoftAP network.
-#### Added 
+#### Added
 - an ability to restart "init" data collecting if location permission is granted.
 ### 1.3.8
 #### Fixed

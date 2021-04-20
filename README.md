@@ -10,10 +10,13 @@ repositories {
 2. Add dependencies:
 ```groovy
 dependencies {
-    implementation 'com.cirrent:cirrentsdk:1.6.0'
+    implementation 'com.cirrent:cirrentsdk:1.6.1'
 }
 ```
 ## CHANGELOG
+### 1.6.1
+#### Fixed
+- a bug where `MobileAppIntelligence.removeAllCollectedData()` may cause a crash.
 ### 1.6.0
 #### Changed
 - now to report step details you need to call `enterStep(StepData)` method (you can create `StepData` object using `StepData.create()` method);

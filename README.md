@@ -31,6 +31,9 @@ dependencies {
 - BLE & Soft AP onboarding protocols have been changed;
 - ZipKey onboarding type has been completely removed;
 - improved stability.
+### 1.3.10
+#### Fixed
+- fixed a bug where an incorrect symbol in Bonjour TXTRecord may cause ArrayIndexOutOfBounds exception..
 ### 1.3.9
 #### Fixed
 - fixed a bug where the candidate networks list may contain SoftAP network.

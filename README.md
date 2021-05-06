@@ -10,10 +10,14 @@ repositories {
 2. Add dependencies:
 ```groovy
 dependencies {
-    implementation 'com.cirrent:cirrentsdk:1.6.1'
+    implementation 'com.cirrent:cirrentsdk:1.6.3'
 }
 ```
 ## CHANGELOG
+### 1.6.3
+#### Fixed
+- a bug where the sdk may cause a crash on OnePlus 7T phone;
+- a bug where the sdk may cause a crash due to non-standard/incorrect Bonjour TXT Record.
 ### 1.6.1
 #### Fixed
 - a bug where `MobileAppIntelligence.removeAllCollectedData()` may cause a crash.

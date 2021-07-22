@@ -10,10 +10,13 @@ repositories {
 2. Add dependencies:
 ```groovy
 dependencies {
-    implementation 'com.cirrent:cirrentsdk:1.6.3'
+    implementation 'com.cirrent:cirrentsdk:1.6.5'
 }
 ```
 ## CHANGELOG
+### 1.6.5
+#### Fixed
+- a bug where the sdk couldn't get device info during Soft AP onboarding;
 ### 1.6.3
 #### Fixed
 - a bug where the sdk may cause a crash on OnePlus 7T phone;

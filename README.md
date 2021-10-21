@@ -38,6 +38,9 @@ dependencies {
 - BLE & Soft AP onboarding protocols have been changed;
 - ZipKey onboarding type has been completely removed;
 - improved stability.
+### 1.3.12
+#### Fixed
+- fixed a bug where SystemStateReceiver may cause an ANR.
 ### 1.3.11
 #### Fixed
 - fixed a bug where an incorrect SRV description URL of UPnP service may cause IllegalArgumentException.

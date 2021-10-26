@@ -38,6 +38,9 @@ dependencies {
 - BLE & Soft AP onboarding protocols have been changed;
 - ZipKey onboarding type has been completely removed;
 - improved stability.
+### 1.3.13
+#### Fixed
+- fixed a bug where BonjourBrowser could cause ConcurrentModificationException.
 ### 1.3.12
 #### Fixed
 - fixed a bug where SystemStateReceiver may cause an ANR.

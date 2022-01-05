@@ -19,7 +19,7 @@ repositories {
 
 ```groovy
 dependencies {
-  implementation 'com.cirrent:cirrentsdk:1.6.5'
+  implementation 'com.cirrent:cirrentsdk:1.6.10'
 }
 ```
 

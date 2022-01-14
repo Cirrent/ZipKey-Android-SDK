@@ -120,6 +120,226 @@ MobileAppIntelligence.endOnboarding(
 
 It tells the CIRRENT™ Cloud that onboarding has been ended. Close out the onboarding id.
 
+## Using CIRRENT™ Wi-Fi Onboarding
+
+In order to on-board your device via Soft AP or BLE you need to go through the following steps:
+
+### 1. Connect
+
+#### BLE:
+
+```java
+BluetoothService
+                .getBluetoothService()
+                .connectToDeviceViaBluetooth(
+                        bluetoothDeviceName,
+                        applicationContext,
+                        new BluetoothService.BluetoothDeviceConnectionCallback() {
+                            @Override
+                            public void onError(BluetoothService.BluetoothDeviceConnectionError error) {
+                                switch (error) {
+                                    case CONNECTION_INTERRUPTED_BY_ANOTHER_SIDE:
+                                    case UNABLE_TO_DISCOVER_SERVICES:
+                                    case UNABLE_TO_WRITE_DATA:
+                                    case UNABLE_TO_READ_RESPONSE:
+                                    case OPERATION_TIME_LIMIT_EXCEEDED:
+                                    case FAILED_TO_FIND:
+                                    case BLE_NOT_SUPPORTED:
+                                    case LOCATION_DISABLED:
+                                    case UNABLE_TO_CONNECT:
+                                    case BLUETOOTH_DISABLED:
+                                    case LOCATION_PERMISSION_DENIED:
+                                }
+                            }
+
+                            @Override
+                            public void onDeviceConnectedSuccessfully() {
+
+                            }
+                        });
+```
+
+#### Soft AP:
+
+***Please note:*** Before you initiate the connection you need to get the ID of your current Wi-Fi network using `WifiManager.getConnectionInfo().getNetworkId();`. This ID will be used on the step #3 to help to rejoin the previous network when the softAP network goes away.
+
+```java
+SoftApService
+            .getSoftApService()
+            .connectToDeviceViaSoftAp(
+                    false, // "true" if you want to skip Smart Network/Smart Switch checking
+                    applicationContext,
+                    "{deviceSoftApSsid}",
+                    new SoftApService.SoftApDeviceConnectionCallback() {
+                        @Override
+                        public void onDeviceConnectedSuccessfully() {
+
+                        }
+
+                        @Override
+                        public void onError(SoftApService.SoftApDeviceConnectionError error) {
+                            switch (error) {
+                                case LOCATION_PERMISSION_DENIED:
+                                case LOCATION_DISABLED:
+                                case FAILED_TO_CONNECT:
+                                case SMART_NETWORK_ENABLED:
+                                case SOFT_AP_NETWORK_NOT_FOUND:
+                            }
+                        }
+                    });
+```
+
+### 2. Get Device info and the list of candidate Wi-Fi networks
+
+#### BLE:
+
+```java
+BluetoothService
+                .getBluetoothService()
+                .getDeviceInfoViaBluetooth(
+                        new BluetoothService.BluetoothDeviceInfoCallback() {
+                            @Override
+                            public void onError(BluetoothService.BluetoothDeviceInfoError error) {
+                                switch (error) {
+                                    case OPERATION_TIME_LIMIT_EXCEEDED:
+                                    case UNABLE_TO_READ_RESPONSE:
+                                    case UNABLE_TO_WRITE_DATA:
+                                    case UNABLE_TO_DISCOVER_SERVICES:
+                                    case CONNECTION_INTERRUPTED_BY_ANOTHER_SIDE:
+                                    case CONNECTION_IS_NOT_ESTABLISHED:
+                                    case INVALID_SCD_PUBLIC_KEY_RECEIVED:
+                                }
+                            }
+
+                            @Override
+                            public void onInfoReceived(DeviceInfo deviceInfo, List<WiFiNetwork> candidateNetworks) {
+
+                            }
+                        });
+```
+
+#### Soft AP:
+
+```java
+SoftApService
+            .getSoftApService()
+            .getDeviceInfoViaSoftAp(
+                    CirrentApplication.getAppContext(),
+                    new SoftApService.SoftApDeviceInfoCallback() {
+                        @Override
+                        public void onDeviceInfoReceived(DeviceInfo deviceInfo, List<WiFiNetwork> candidateNetworks) {
+                                
+                        }
+
+                        @Override
+                        public void onError(SoftApService.SoftApDeviceInfoError error) {
+                            switch (error) {
+                                case INVALID_SCD_PUBLIC_KEY_RECEIVED:
+                            }
+                        }
+                    },
+                    new CommonErrorCallback() {
+                        @Override
+                        public void onFailure(final CirrentException e) {
+                                // if a network exception occurred talking to the server or when an unexpected exception occurred creating the request or processing the response.
+                        }
+                    });
+```
+
+***Please note:*** Among other things, the `DeviceInfo` object contains the `scdPublicKey` value required for the pre-shared key encryption.
+
+### 3. Send private Wi-Fi network crededentials and start checking joining status
+
+#### BLE:
+```java
+BluetoothService
+                .getBluetoothService()
+                .putPrivateCredentialsViaBluetooth(
+                        false, // "true" if you want to connect your device to the hidden network.
+                        255, // Network priority. Value should be between 150 and 255.
+                        applicationContext,
+                        selectedNetwork, // WiFiNetwork object (desired network from the candidate networks list)
+                        "{pre-shared key}",
+                        new BluetoothService.BluetoothCredentialsSenderCallback() {
+                            @Override
+                            public void onError(BluetoothService.BluetoothCredentialsSenderError error) {
+                                switch (error) {
+                                    case CONNECTION_IS_NOT_ESTABLISHED:
+                                    case CONNECTION_INTERRUPTED_BY_ANOTHER_SIDE:
+                                    case UNABLE_TO_DISCOVER_SERVICES:
+                                    case UNABLE_TO_WRITE_DATA:
+                                    case UNABLE_TO_READ_RESPONSE:
+                                    case OPERATION_TIME_LIMIT_EXCEEDED:
+                                    case INVALID_SCD_PUBLIC_KEY_USED:
+                                    case INCORRECT_PRIORITY_VALUE_USED:
+                                }
+                            }
+
+                            @Override
+                            public void onCredentialsSent() {
+                                //credentials were successfully sent to the device
+                            }
+
+                            @Override
+                            public void onConnectedToPrivateNetwork() {
+
+                            }
+
+                            @Override
+                            public void onNetworkJoiningFailed(String errorMessage) {
+
+                            }
+                        }
+                );
+```
+
+#### Soft AP:
+
+```java
+    SoftApService
+                .getSoftApService()
+                .putPrivateCredentialsViaSoftAp(
+                        false, // "true" if you want to connect your device to the hidden network.
+                        previousNetworkId, //ID of the WiFi network which user's phone/tablet has been previously connected to. (It helps to rejoin the previous network when the softAP network goes away)
+                        priority, // Network priority. Value should be between 150 and 255.
+                        applicationContext,
+                        "{deviceSoftApSsid}",
+                        selectedNetwork, // WiFiNetwork object (desired network from the candidate networks list)
+                        "{pre-shared key}",
+                        new SoftApService.SoftApCredentialsSenderCallback() {
+                            @Override
+                            public void onCredentialsSent() {
+                                //credentials were successfully sent to the device
+                            }
+
+                            @Override
+                            public void onReturnedToNetworkWithInternet(boolean isDeviceConnectedToNetwork) {
+
+                            }
+
+                            @Override
+                            public void onNetworkJoiningFailed() {
+
+                            }
+
+                            @Override
+                            public void onError(SoftApService.SoftApCredentialsSenderError error) {
+                                switch (error) {
+                                    case INCORRECT_PRIORITY_VALUE_USED:
+                                    case INVALID_SCD_PUBLIC_KEY_USED:
+                                    case FAILED_TO_RETURN_TO_PRIVATE_NETWORK:
+                                }
+                            }
+                        },
+                        new CommonErrorCallback() {
+                            @Override
+                            public void onFailure(final CirrentException e) {
+                                // if a network exception occurred talking to the server or when an unexpected exception occurred creating the request or processing the response.
+                            }
+                        });
+```
+
+
 ## CHANGELOG
 ### 1.6.10
 - CIRRENT™ Wi-Fi Onboarding API was simplified; 
